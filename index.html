@@ -30,15 +30,15 @@
 <!-- HERE TO change the folder to your game -->
 <!-- //////////////////////////////////// -->
 	<!-- favicon generated using https://favicon.io/ -->
-	<link rel="icon" type="image/png" sizes="32x32" href="escaposaurus_examplegamedata/img/favicon/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="escaposaurus_examplegamedata/img/favicon/favicon-16x16.png">
-	<link rel="icon" type="image/png" href="escaposaurus_examplegamedata/img/favicon/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="escaposaurus_gamedata/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="escaposaurus_gamedata/img/favicon/favicon-16x16.png">
+	<link rel="icon" type="image/png" href="escaposaurus_gamedata/img/favicon/favicon.ico">
 
 	<!-- our stylesheet -->
-	<link rel="stylesheet" href="escaposaurus_examplegamedata/escaposaurus_style.css">
+	<link rel="stylesheet" href="escaposaurus_gamedata/escaposaurus_style.css">
 
 	<!-- everything that run the game -->
-	<script src="escaposaurus_examplegamedata/escaposaurus_exampledata.js"></script>
+	<script src="escaposaurus_gamedata/escaposaurus_data.js"></script>
 <!-- /HERE TO INCLUDE YOUR GAME DATA -->
 <!-- //////////////////////////////////// -->
 
@@ -75,14 +75,16 @@
 			</script>
 		</div>
 	<div id="main-container">
-
-		<div id="os-name"></div>
+		<div id="os-name-container">
+			<div id="os-name"></div>
+		</div>
 
 		<div id='main-game-div' class="container">
 			<div class="row">
 				<div class="col-sm-6" style="height:85%;">
 					<div id="callApp">
 						<div class="app-title">
+							<img src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">							
 							<span class="app-title-span" id="callerApp-name"></span>
 						</div>
 						<div id="callApp-prompt"></div>
@@ -99,13 +101,14 @@
 				<div class="col-sm-6" style="height:85%;">
 					<div id="folderApp">
 						<div class="app-title">
+							<img src="escaposaurus_gamedata/img/UI/fenetre_droite.png">	
 							<span class="app-title-span" id="explorer-name"></span>
 						</div>
 						<div id="folderApp-content">
 							<div>
 								<ul id="rootul" name="rootul">
 								  <li class="rootLI">
-								    Root
+								    Bateau
 								  </li>
 								</ul>
 							</div>
@@ -116,32 +119,42 @@
 		</div>
 
 		<div id="footer"><button class="footer-button" onclick="openIt('overlay-index')">Revoir page introduction</button>
-			<button class="footer-button" onclick="openVideoWindow('introBis')">Revoir premier appel reçu</button>
-			<button id="button-outro" class="footer-button hidden" onclick="openVideoWindow('epilogue')">Revoir vidéo générique</button>
+			<button class="footer-button" onclick="openVideoWindow('introBis')">Revoir la première discution avec Pierre</button>
+			<button id="button-outro" class="footer-button hidden" onclick="openVideoWindow('epilogue')">Revoir Vivien</button>
 			<button class="footer-button" onclick="openIt('solution-window')">Aide &amp; solutions</button>
 			<button class="footer-button" onclick="openIt('credit-window')">Crédits</button></div>
 	</div>
 	<div id="callVideo-window" class="hidden">
-		<div class="app-title"><span id="callVideo-title" class="app-title-span">APPEL EN COURS</span></div>
+		<div class="app-title">
+			
+			<img class="imgTitleBig" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span id="callVideo-title" class="app-title-span">DISCUTION EN COURS</span>
+		</div>
 		<div id="callVideo-content">	
 		</div>
 		<br/>
-		<button id="btn-closecall" onclick="closeVideoWindow(this.parentElement);">FERMER</button>
+		<button id="btn-closecall" onclick="closeVideoWindow(this.parentElement);">Partir</button>
 	</div>
 	<!--PASSWORD CAN'T UNLOCK NOW-->
 		<div id="notnowPrompt-window" class="hidden">
-			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="app-title">
+				<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->	
+				<span class="app-title-span">PROTEGE</span>
+			</div>
 			<div class="message-content">
-				Le dossier <span id="folderN"></span> ne peut être déverouillé pour le moment<br/>
+				La Salle <span id="folderN"></span> ne peut être déverouillé pour le moment<br/>
 				<button class="window-btn" onclick="closeIt('notnowPrompt-window')">OK</button>
 			</div>
 		</div>
 
 	<!--PASSWORD PROMPT-->
 		<div id="passPrompt-window" class="hidden">
-			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="app-title">
+				<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+				<span class="app-title-span">PROTEGE</span>
+			</div>
 			<div class="message-content">
-				Dossier : <span id="folderD"></span><br/>
+				Porte : <span id="folderD"></span><br/>
 				<input id="passwordInput" name="passwordInput" type="text" placeholder="mot de passe" value="" autocomplete="off" onkeypress="checkIfEnter(event, passwordInput.value, folderInput.value)" />
 				<input id="folderInput" name="folderInput" type="hidden" value="0" />
 				<button class="window-btn" onclick="checkPassword(passwordInput.value, folderInput.value)">OK</button>
@@ -152,10 +165,13 @@
 
 	<!-- WRONG PASSWORD MSG -->
 		<div id="wrongPassword" class="hidden">
-			<div class="app-title"><span class="app-title-span">:(</span></div>
+			<div class="app-title">
+				<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+				<span class="app-title-span">Mauvaise Clé</span>
+			</div>
 			<div class="message-content">
 				<br/>
-				Mauvais mot de passe<br/>
+				Vous avez utilisé la mauvaise clé<br/>
 				<br/>
 				<button class="window-btn" onclick="closeWrongPassword()">OK</button>
 			</div>
@@ -174,11 +190,14 @@
 
 	<!-- APPEL ENTRANT -->
 	<div id="calling-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">APPEL ENTRANT</span></div>
+		<div class="app-title">			
+			<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span class="app-title-span">DISCUTION</span>
+		</div>
 		<div class="message-content">
 			<img id="callerIMG" />
 			<br/>
-			Appel entrant...<br/>
+			Une personne s'approche de vous...<br/>
 			<br/>
 			<button class="window-btn" onclick="closeAppelEntrant('calling-window')">Répondre</button>
 		</div>
@@ -186,7 +205,10 @@
 
 	<!-- MESSAGE DE LOU -->
 	<div id="message-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">MESSAGE</span></div>
+		<div class="app-title">
+			<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span class="app-title-span">POTIN</span>
+		</div>
 		<div class="message-content">
 			<img  id="caller2IMG" /><br/>
 			<span id="tips-content"></span><br/>
@@ -196,25 +218,28 @@
 
 	<!-- MESSAGE PAS CALL -->
 	<div id="nocall-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">...</span></div>
+		<div class="app-title">
+			<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span class="app-title-span">...</span>
+		</div>
 		<div class="message-content">
 			Appel impossible pour le moment<br/>
 			<button class="window-btn" onclick="closeIt('nocall-window')">Fermer</button>
 		</div>
 	</div>
 
-	<!-- ADDED SINGLE MESSAGE -->
-	<div id="text-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">...</span></div>
-		<div class="message-content">
-			<p id="txtContent"></p>
-			<button class="window-btn" onclick="closeIt('text-window')">Fermer</button>
-		</div>
+	<!-- AUDIOS -->
+	<div id="audiosReader" class="hidden">
+		<audio src="" id="BGMplayer" loop preload="auto"></audio>
+		<div id="SFXplayer"></div>
 	</div>
 
 	<!-- SOLUTION -->
 	<div id="solution-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">AIDE / SOLUTION</span></div>
+		<div class="app-title">
+			<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span class="app-title-span">AIDE / SOLUTION</span>
+		</div>
 		<div class="message-content">
 			<button class="window-btn" onclick="instructionReveal('tips')">Cliquer pour savoir quoi faire à cette étape</button>
 			<br/>
@@ -231,7 +256,10 @@
 
 	<!-- CREDIT -->
 	<div id="credit-window" class="hidden">
-		<div class="app-title"><span class="app-title-span">CREDITS</span></div>
+		<div class="app-title">
+			<img class="imgTitleLittle" src="escaposaurus_gamedata/img/UI/fenetre_gauche.png">	<!--A CHANGER POUR PLUS PETIT-->
+			<span class="app-title-span">CREDITS</span>
+		</div>
 		<div class="message-content">
 			<span id="game-credit"></span>
 			<br/><br/>
@@ -251,15 +279,16 @@
 	<!-- overlay index du jeu-->
 	<div id="overlay-index">
 		<div class="container" id="container-homeMission">
-			<br/>
+			<div id="overlay-title">
 				<h3 id="home-gameTitle"></h3>
-				<span id="home-gameDescription"></span><br/><br/><br/><br/>
-				<div id="div-homeMission">
-					<h3 id="home-mission"></h3>
-					<video id="vid-overlay" controls="true" autoplay="true" src="" style="text-align:center;max-width:750px;"></video>
-					<br/><br/>
-					<button id="overlay-btn" class="window-btn" onclick="closeOverlay('overlay-index')"></btn>
-				</div>
+			</div>
+			<span id="home-gameDescription"></span><br/><br/><br/><br/>
+			<div id="div-homeMission">
+				<h3 id="home-mission"></h3>
+				<video id="vid-overlay" controls="true" autoplay="true" src="" style="text-align:center;max-width:750px;"></video>
+				<br/><br/>
+				<button id="overlay-btn" class="window-btn" onclick="closeOverlay('overlay-index')"></btn>
+			</div>
 			</div>
 		</div>
 	</div>

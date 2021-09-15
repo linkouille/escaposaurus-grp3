@@ -36,7 +36,7 @@ function loadDataIntoHTML(){
 
 	document.getElementById("added").innerHTML = finalStepAdded ;
 
-	document.getElementById("os-name").innerHTML = OSName ;
+	document.getElementById("os-name").innerHTML =  OSName;
 	document.getElementById("callerApp-name").innerHTML = callerAppName ;
 	document.getElementById("explorer-name").innerHTML = explorerName ;
 
@@ -260,18 +260,22 @@ function cFile(name, parent, fullPath){
 	elem.name = name ;
 	elem.classList.add("file") ;
 	elem.classList.add("arbo") ;
-	fileType =  name.substring(name.length - 3);
+	//fileType =  name.substring(name.length - 3);
 
 	var elemA = document.createElement('a') ;
 	elemA.classList.add("file-name") ;
-	if(fileType == "png" || fileType == "jpg"){
+	// if(fileType == "png" || fileType == "jpg"){
 
-		elemA.href = udiskRoot+fullPath+name;
-		elemA.setAttribute("data-lightbox", "") ;
-		elemA.setAttribute("data-image-alt", "name") ;	
-	}else if(fileType == "txt"){
-		elemA.setAttribute("onclick", "openTxTWindow(\"File content\") ;") ;
-	}
+	// 	elemA.href = udiskRoot+fullPath+name;
+	// 	elemA.setAttribute("data-lightbox", "") ;
+	// 	elemA.setAttribute("data-image-alt", "name") ;	
+	// }else if(fileType == "txt"){
+	// 	elemA.setAttribute("onclick", "openTxTWindow(\"" + udiskRoot+fullPath+name +"\") ;") ;
+	// }
+	
+	elemA.href = udiskRoot+fullPath+name;
+	elemA.setAttribute("data-lightbox", "") ;
+	elemA.setAttribute("data-image-alt", "name") ;
 	elemA.innerHTML = name ;	
 	elem.appendChild(elemA) ;	
 	var p = document.getElementById(parent+"ul") ;
@@ -467,17 +471,6 @@ function openContactTxTWindow(vid, bigAvatarHelper){
 	}
 }
 
-// ADDED
-function openTxTWindow(content){
-	//TinyStato.logThis(13, "textexchange", vid, sequenceNumber) ;
-	var z = document.getElementById("txtContent") ;
-	z.innerHTML = content;
-	console.log(z);
-	openIt("text-window") ;
-	return;
-	
-}
-
 
 /*open/close video windows*/
 function openVideoWindow(vid, vid_folder){
@@ -669,4 +662,26 @@ function solutionClose(iid, spid, spwin){
 	var sp = document.getElementById(spid) ;
 	sp.innerHTML = "" ;
 	closeIt(spwin) ;
+}
+
+function playSFX(n){
+	var contener = document.getElementById("SFXplayer");
+	var player = new Audio("escaposaurus_gamedata/audio/SFX/" + SFX[n]);
+	player.preload = "auto";
+
+	contener.append(player);
+	player.play();
+	player.onended = function (e) {
+		contener.innerHTML = "";
+	}
+}
+
+function changeBGM (n) {
+	var player = document.getElementById("BGMplayer");
+
+	player.pause();
+	player.src = "escaposaurus_gamedata/audio/BGM/" + BGM[n] ;
+
+	player.play();
+
 }

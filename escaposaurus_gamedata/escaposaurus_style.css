@@ -36,7 +36,7 @@ video{max-width: 960px;}
 	max-height:800px;
 	margin: auto;
 	height:100%;
-	border:1px solid #1022CC;
+	border:1px solid #000000;
 	text-align: center;
 	position:relative;
 	
@@ -59,24 +59,43 @@ video{max-width: 960px;}
 
 #container-homeMission{
 	width:800px;
+	background: url(img/UI/papier.png);
 	background-color:white;
 	margin-top:20px;
 	padding-bottom:20px;
+	border-radius: 2%;
+	border: solid #b1636a;
+}
+#container-homeMission #overlay-title {
+	display: block;
+	background: url(img/UI/fenetre_droite.png) no-repeat center;
+	height: 71px;
+	padding-top: 1px;
+	margin-top: -15px;
+	
+	object-fit: fill; 
 }
 
 #div-homeMission{
 	background-color:#dcdcdc;
-	border:2px solid #1022CC;
+	border:2px solid #b1636a;
 	padding:5px;
 }
 
+#os-name-container{
+	display: block;
+	height: 71px;
+	padding-top: 1px;
+
+	background: url(img/UI/fenetre_droite.png) no-repeat center;
+}
 #os-name{
-	color:#ffffff;
-	font-size:30px;
-	font-weight: bold;
-	padding:5px;
-	background-color:#1022CC;
+	margin-top: 15px;
 	font-family: Roboto;
+	text-align: center;
+	color:#000000;
+	font-size:20px;
+	font-weight: bold;
 }
 
 #main-game-div{
@@ -85,16 +104,40 @@ video{max-width: 960px;}
 
 /*shared style for app*/
 .app-title{
-	height:50px;
-	background-color: #1022CC;
-	border:1px solid white; 
-	color: white;
+	height:71px;
+	padding-top: 10px;
 	text-align:center;
+}
+.app-title img{
+	
+	object-fit: cover;
+	margin-left: -31%;
+	margin-top: -10px;
+
+	position: absolute;
+}
+.app-title .imgTitleLittle{
+	
+	object-fit: cover;
+	/* margin-left: -18%; */
+	margin-top: -10px;
+
+	position: absolute;
+}
+.app-title .imgTitleBig{
+	
+	object-fit: cover;
+	margin-left: -18%;
+	margin-top: -10px;
+
+	position: absolute;
 }
 
 .app-title-span{
+	position: relative;
 	font-family: Odibee ;
 	font-size:30px;
+	/* color: red; */
 }
 
 /*call app*/
@@ -245,7 +288,7 @@ video{max-width: 960px;}
 #overlay-index button,
 #text-window button{ 																		/*HERE*/
 	color:#fff;
-	background-color: #1022CC;
+	background-color: #b1636a;
 	border: none;
 	padding:3px;
 	margin:3px;
